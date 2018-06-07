@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import <skpsmtpmessage/SKPSMTPMessage.h>
 #import <SVProgressHUD.h>
+#import "NSData+Base64Additions.h"
+
 //Tap to edit...
 @interface ViewController ()<SKPSMTPMessageDelegate>
 
@@ -27,23 +29,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
     [self setupNoti];
-    
 }
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [_subjTF resignFirstResponder];
-    
     [_contentTV resignFirstResponder];
 }
 
 - (IBAction)sent:(id)sender {
-    
-    
-  
     
     if (_subjTF.text.length == 0 && _contentTV.text.length == 0 ) {
         return;
@@ -61,8 +57,30 @@
     myMessage.wantsSecure = YES;
     myMessage.subject = _subjTF.text;//邮件主题
     myMessage.delegate = self;
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,[NSString stringWithFormat:@"%@",_contentTV.text],kSKPSMTPPartMessageKey,@"100bit",kSKPSMTPPartContentTransferEncodingKey, nil];
-    myMessage.parts = [NSArray arrayWithObjects:param,nil];
+    
+    //文字
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           @"text/plain",kSKPSMTPPartContentTypeKey,
+                           [NSString stringWithFormat:@"%@",_contentTV.text],kSKPSMTPPartMessageKey,
+                           @"100bit",kSKPSMTPPartContentTransferEncodingKey,
+                           nil];
+    //图片
+    
+    NSString *vcfPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"png"];
+    NSData *imgData = [NSData dataWithContentsOfFile:vcfPath];
+
+        NSString *dataObj = [imgData encodeBase64ForData];
+    NSDictionary *imagePart = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"image/png;\r\n\tx-unix-mode=0644;\r\n\tname=\"backIcon.png\"",kSKPSMTPPartContentTypeKey,
+                               @"attachment;\r\n\tfilename=\"backIcon.png\"",kSKPSMTPPartContentDispositionKey,
+                               dataObj,kSKPSMTPPartMessageKey,
+                               @"base64",kSKPSMTPPartContentTransferEncodingKey,
+                               nil];
+
+
+    myMessage.parts = [NSArray arrayWithObjects:param,imagePart,nil];
+    
+//    myMessage.parts = [NSArray arrayWithObjects:param,nil];
     [myMessage send];
     [SVProgressHUD show];
 }
@@ -71,8 +89,8 @@
 {
     
     NSLog(@"%@",message);
-    [SVProgressHUD showSuccessWithStatus:@"ok"];
-     [SVProgressHUD setMaximumDismissTimeInterval:0.5];
+    [SVProgressHUD showSuccessWithStatus:@""];
+    [self performSelector:@selector(dismiss:) withObject:nil afterDelay:1];
     _subjTF.text = @"";
     _contentTV.text = @"";
     [_subjTF resignFirstResponder];
@@ -88,6 +106,9 @@
     [_subjTF resignFirstResponder];
     [_contentTV resignFirstResponder];
     
+}
+- (void)dismiss:(id)sender {
+    [SVProgressHUD dismiss];
 }
 -(void)keyboardWillShow:(NSNotification*)note{
     

@@ -13,6 +13,7 @@
 		48EB408C20C8BBC5005B0E1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB408B20C8BBC5005B0E1F /* Assets.xcassets */; };
 		48EB408F20C8BBC5005B0E1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48EB408D20C8BBC5005B0E1F /* LaunchScreen.storyboard */; };
 		48EB409220C8BBC5005B0E1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EB409120C8BBC5005B0E1F /* main.m */; };
+		48EB40A720C8F392005B0E1F /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 48EB40A620C8F392005B0E1F /* test.png */; };
 		F3088410CB57A48D4A360774 /* libPods-Mail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 493934457DADF7D73700E671 /* libPods-Mail.a */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		48EB408E20C8BBC5005B0E1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48EB409020C8BBC5005B0E1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48EB409120C8BBC5005B0E1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		48EB40A620C8F392005B0E1F /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		493934457DADF7D73700E671 /* libPods-Mail.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mail.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB44133EF852E5E93843021 /* Pods-Mail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mail/Pods-Mail.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 				48EB408520C8BBC3005B0E1F /* ViewController.h */,
 				48EB408620C8BBC3005B0E1F /* ViewController.m */,
 				48EB408820C8BBC3005B0E1F /* Main.storyboard */,
+				48EB40A620C8F392005B0E1F /* test.png */,
 				48EB408B20C8BBC5005B0E1F /* Assets.xcassets */,
 				48EB408D20C8BBC5005B0E1F /* LaunchScreen.storyboard */,
 				48EB409020C8BBC5005B0E1F /* Info.plist */,
@@ -157,6 +160,7 @@
 				48EB408F20C8BBC5005B0E1F /* LaunchScreen.storyboard in Resources */,
 				48EB408C20C8BBC5005B0E1F /* Assets.xcassets in Resources */,
 				48EB408A20C8BBC3005B0E1F /* Main.storyboard in Resources */,
+				48EB40A720C8F392005B0E1F /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +356,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JXFC44EES;
 				INFOPLIST_FILE = Mail/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = zack.Mail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -367,7 +374,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JXFC44EES;
 				INFOPLIST_FILE = Mail/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = zack.Mail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
