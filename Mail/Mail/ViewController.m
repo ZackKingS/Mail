@@ -11,6 +11,12 @@
 #import <skpsmtpmessage/SKPSMTPMessage.h>
 @interface ViewController ()<SKPSMTPMessageDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *subjTF;
+
+@property (weak, nonatomic) IBOutlet UITextField *contentTF;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *senderButonCons;
+
 @end
 
 @implementation ViewController
@@ -18,6 +24,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+  
+    
+    
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    [_subjTF resignFirstResponder];
+    
+    [_contentTF resignFirstResponder];
+}
+
+- (IBAction)sent:(id)sender {
+    
     
     SKPSMTPMessage *myMessage = [[SKPSMTPMessage alloc] init];
     myMessage.fromEmail = @"zhengbaich@163.com"; //发送邮箱
@@ -30,17 +55,47 @@
     myMessage.pass = @"1993422";//发送邮箱的密码
     
     myMessage.wantsSecure = YES;
-    myMessage.subject = @"yes";//邮件主题
+    myMessage.subject = _subjTF.text;//邮件主题
     myMessage.delegate = self;
     
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,[NSString stringWithFormat:@"%@",@"test"],kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey, nil];
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,[NSString stringWithFormat:@"%@",_contentTF.text],kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey, nil];
     myMessage.parts = [NSArray arrayWithObjects:param,nil];
     
     [myMessage send];
+}
+
+
+
+-(void)keyboardWillShow:(NSNotification*)note{
+    
+
+    
+    
+    
+    CGRect keyBoardRect=[note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+
+    
+    
+    __weak typeof(self) weakself = self;
+    [UIView animateWithDuration:0.3 animations:^{
+          weakself.senderButonCons.constant = keyBoardRect.size.height + 38;
+    }];
+    
+    
+  
     
     
 }
 
+-(void)keyboardWillHide:(NSNotification*)note{
+
+    
+    
+    __weak typeof(self) weakself = self;
+    [UIView animateWithDuration:0.3 animations:^{
+        weakself.senderButonCons.constant =  38;
+    }];
+}
 - (void)messageSent:(SKPSMTPMessage *)message
 {
     
