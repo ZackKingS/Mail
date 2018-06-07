@@ -1,16 +1,20 @@
 PODS:
   - skpsmtpmessage (0.0.1)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - skpsmtpmessage
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - skpsmtpmessage
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   skpsmtpmessage: f6e913380c784dd8d4a9f83c8790a302445a5e05
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 7a90342b457577df9790b10efbc418839681ca4d
+PODFILE CHECKSUM: 83b3fe407652053d57a85e07e068951c8a9231ab
 
 COCOAPODS: 1.5.0

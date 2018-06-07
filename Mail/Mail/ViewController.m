@@ -9,11 +9,14 @@
 
 #import "ViewController.h"
 #import <skpsmtpmessage/SKPSMTPMessage.h>
+#import <SVProgressHUD.h>
+//Tap to edit...
 @interface ViewController ()<SKPSMTPMessageDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *subjTF;
 
-@property (weak, nonatomic) IBOutlet UITextField *contentTF;
+@property (weak, nonatomic) IBOutlet UITextView *contentTV;
+
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *senderButonCons;
 
@@ -25,20 +28,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-  
-    
+    [self setupNoti];
     
 }
+
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [_subjTF resignFirstResponder];
     
-    [_contentTF resignFirstResponder];
+    [_contentTV resignFirstResponder];
 }
 
 - (IBAction)sent:(id)sender {
@@ -58,48 +57,27 @@
     myMessage.subject = _subjTF.text;//邮件主题
     myMessage.delegate = self;
     
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,[NSString stringWithFormat:@"%@",_contentTF.text],kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey, nil];
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,[NSString stringWithFormat:@"%@",_contentTV.text],kSKPSMTPPartMessageKey,@"100bit",kSKPSMTPPartContentTransferEncodingKey, nil];
     myMessage.parts = [NSArray arrayWithObjects:param,nil];
     
     [myMessage send];
+    
+    [SVProgressHUD show];
+   
 }
 
-
-
--(void)keyboardWillShow:(NSNotification*)note{
-    
-
-    
-    
-    
-    CGRect keyBoardRect=[note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-
-    
-    
-    __weak typeof(self) weakself = self;
-    [UIView animateWithDuration:0.3 animations:^{
-          weakself.senderButonCons.constant = keyBoardRect.size.height + 38;
-    }];
-    
-    
-  
-    
-    
-}
-
--(void)keyboardWillHide:(NSNotification*)note{
-
-    
-    
-    __weak typeof(self) weakself = self;
-    [UIView animateWithDuration:0.3 animations:^{
-        weakself.senderButonCons.constant =  38;
-    }];
-}
 - (void)messageSent:(SKPSMTPMessage *)message
 {
     
     NSLog(@"%@",message);
+    [SVProgressHUD showSuccessWithStatus:@"ok"];
+     [SVProgressHUD setMaximumDismissTimeInterval:0.5];
+    _subjTF.text = @"";
+    _contentTV.text = @"";
+    [_subjTF resignFirstResponder];
+    [_contentTV resignFirstResponder];
+    
+    
 }
 
 - (void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error
@@ -108,7 +86,32 @@
     
     NSLog(@"delegate - error(%ld): %@", (long)[error code], [error localizedDescription]);
     
+    [SVProgressHUD showErrorWithStatus:[error localizedDescription]];
+    [_subjTF resignFirstResponder];
+    [_contentTV resignFirstResponder];
     
+}
+-(void)keyboardWillShow:(NSNotification*)note{
+    
+    CGRect keyBoardRect=[note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    __weak typeof(self) weakself = self;
+    [UIView animateWithDuration:0.3 animations:^{
+        weakself.senderButonCons.constant = keyBoardRect.size.height + 38;
+    }];
+    
+}
+
+-(void)keyboardWillHide:(NSNotification*)note{
+    
+    __weak typeof(self) weakself = self;
+    [UIView animateWithDuration:0.3 animations:^{
+        weakself.senderButonCons.constant =  38;
+    }];
+}
+-(void)setupNoti{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+  
 }
 
 

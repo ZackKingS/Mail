@@ -7,5 +7,6 @@ target 'Mail' do
 
   # Pods for Mail
 pod 'skpsmtpmessage'
+pod 'SVProgressHUD'
 
 end
