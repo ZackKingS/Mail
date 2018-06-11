@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75.200000000000003" y="32.833583208395808"/>
+            <point key="canvasLocation" x="90" y="-102"/>
         </scene>
         <!--Today View Controller-->
         <scene sceneID="LoP-Cg-6Xn">
@@ -52,8 +52,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123123123123" borderStyle="roundedRect" placeholder="tap to edit..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3s-yd-uhr">
-                                <rect key="frame" x="24" y="34" width="335" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tap to edit..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3s-yd-uhr">
+                                <rect key="frame" x="20" y="34" width="335" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gKk-6d-Oby"/>
                                 </constraints>
@@ -74,7 +74,7 @@
                                     <action selector="send:" destination="anx-gr-2di" eventType="touchUpInside" id="u4J-aX-LKg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123123" borderStyle="roundedRect" placeholder="untitled" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tG3-eq-EOh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="untitled" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tG3-eq-EOh">
                                 <rect key="frame" x="20" y="0.0" width="335" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CNu-jL-eHj"/>
@@ -87,10 +87,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tG3-eq-EOh" firstAttribute="leading" secondItem="kaj-X3-Wpr" secondAttribute="leading" constant="20" id="3Wn-wm-1KN"/>
-                            <constraint firstItem="j3s-yd-uhr" firstAttribute="leading" secondItem="kaj-X3-Wpr" secondAttribute="leading" constant="24" id="HHq-9z-IE6"/>
+                            <constraint firstItem="j3s-yd-uhr" firstAttribute="leading" secondItem="kaj-X3-Wpr" secondAttribute="leading" constant="20" id="HHq-9z-IE6"/>
                             <constraint firstItem="Blv-Oo-fOm" firstAttribute="centerX" secondItem="uKE-GW-4Ey" secondAttribute="centerX" id="HXe-yp-Ge7"/>
                             <constraint firstItem="j3s-yd-uhr" firstAttribute="top" secondItem="tG3-eq-EOh" secondAttribute="bottom" constant="4" id="IMk-Yu-qgI"/>
-                            <constraint firstItem="kaj-X3-Wpr" firstAttribute="trailing" secondItem="j3s-yd-uhr" secondAttribute="trailing" constant="16" id="JGq-DX-E6n"/>
+                            <constraint firstItem="kaj-X3-Wpr" firstAttribute="trailing" secondItem="j3s-yd-uhr" secondAttribute="trailing" constant="20" id="JGq-DX-E6n"/>
                             <constraint firstItem="kaj-X3-Wpr" firstAttribute="trailing" secondItem="tG3-eq-EOh" secondAttribute="trailing" constant="20" id="fQg-rv-ZUa"/>
                             <constraint firstItem="Blv-Oo-fOm" firstAttribute="top" secondItem="j3s-yd-uhr" secondAttribute="bottom" constant="5" id="gRd-Of-EmM"/>
                             <constraint firstItem="tG3-eq-EOh" firstAttribute="top" secondItem="uKE-GW-4Ey" secondAttribute="top" id="p8s-gx-Juf"/>

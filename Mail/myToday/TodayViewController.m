@@ -35,13 +35,10 @@
 }
 -(void)keyboardWillShow:(NSNotification*)note{
     
-   
-    
 }
 
 -(void)keyboardWillHide:(NSNotification*)note{
-    
-
+  
 }
 
 
