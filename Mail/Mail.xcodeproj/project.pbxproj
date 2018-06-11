@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4847936120CE14BC007DA03C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4847936020CE14BC007DA03C /* NotificationCenter.framework */; };
+		4847936520CE14BC007DA03C /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4847936420CE14BC007DA03C /* TodayViewController.m */; };
+		4847936820CE14BC007DA03C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4847936620CE14BC007DA03C /* MainInterface.storyboard */; };
+		4847936C20CE14BC007DA03C /* myToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4847935F20CE14BC007DA03C /* myToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		48EB408420C8BBC3005B0E1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EB408320C8BBC3005B0E1F /* AppDelegate.m */; };
 		48EB408720C8BBC3005B0E1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EB408620C8BBC3005B0E1F /* ViewController.m */; };
 		48EB408A20C8BBC3005B0E1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48EB408820C8BBC3005B0E1F /* Main.storyboard */; };
@@ -17,8 +21,39 @@
 		F3088410CB57A48D4A360774 /* libPods-Mail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 493934457DADF7D73700E671 /* libPods-Mail.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4847936A20CE14BC007DA03C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48EB407720C8BBC3005B0E1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4847935E20CE14BC007DA03C;
+			remoteInfo = myToday;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4847937020CE14BC007DA03C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4847936C20CE14BC007DA03C /* myToday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3482413C0301CD5AFC897E80 /* Pods-Mail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mail/Pods-Mail.debug.xcconfig"; sourceTree = "<group>"; };
+		4847935F20CE14BC007DA03C /* myToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = myToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4847936020CE14BC007DA03C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		4847936320CE14BC007DA03C /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		4847936420CE14BC007DA03C /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		4847936720CE14BC007DA03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4847936920CE14BC007DA03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4847937120CE1546007DA03C /* Mail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mail.entitlements; sourceTree = "<group>"; };
 		48EB407F20C8BBC3005B0E1F /* Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48EB408220C8BBC3005B0E1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		48EB408320C8BBC3005B0E1F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,6 +70,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4847935C20CE14BC007DA03C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4847936120CE14BC007DA03C /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		48EB407C20C8BBC3005B0E1F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,14 +93,27 @@
 			isa = PBXGroup;
 			children = (
 				493934457DADF7D73700E671 /* libPods-Mail.a */,
+				4847936020CE14BC007DA03C /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4847936220CE14BC007DA03C /* myToday */ = {
+			isa = PBXGroup;
+			children = (
+				4847936320CE14BC007DA03C /* TodayViewController.h */,
+				4847936420CE14BC007DA03C /* TodayViewController.m */,
+				4847936620CE14BC007DA03C /* MainInterface.storyboard */,
+				4847936920CE14BC007DA03C /* Info.plist */,
+			);
+			path = myToday;
 			sourceTree = "<group>";
 		};
 		48EB407620C8BBC3005B0E1F = {
 			isa = PBXGroup;
 			children = (
 				48EB408120C8BBC3005B0E1F /* Mail */,
+				4847936220CE14BC007DA03C /* myToday */,
 				48EB408020C8BBC3005B0E1F /* Products */,
 				AB15D8BDD0B6B27768D6CFA2 /* Pods */,
 				2A46B015795C42FCE0C920B2 /* Frameworks */,
@@ -68,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				48EB407F20C8BBC3005B0E1F /* Mail.app */,
+				4847935F20CE14BC007DA03C /* myToday.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +132,7 @@
 		48EB408120C8BBC3005B0E1F /* Mail */ = {
 			isa = PBXGroup;
 			children = (
+				4847937120CE1546007DA03C /* Mail.entitlements */,
 				48EB408220C8BBC3005B0E1F /* AppDelegate.h */,
 				48EB408320C8BBC3005B0E1F /* AppDelegate.m */,
 				48EB408520C8BBC3005B0E1F /* ViewController.h */,
@@ -101,6 +159,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4847935E20CE14BC007DA03C /* myToday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4847936F20CE14BC007DA03C /* Build configuration list for PBXNativeTarget "myToday" */;
+			buildPhases = (
+				4847935B20CE14BC007DA03C /* Sources */,
+				4847935C20CE14BC007DA03C /* Frameworks */,
+				4847935D20CE14BC007DA03C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = myToday;
+			productName = myToday;
+			productReference = 4847935F20CE14BC007DA03C /* myToday.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		48EB407E20C8BBC3005B0E1F /* Mail */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48EB409520C8BBC5005B0E1F /* Build configuration list for PBXNativeTarget "Mail" */;
@@ -110,10 +185,12 @@
 				48EB407C20C8BBC3005B0E1F /* Frameworks */,
 				48EB407D20C8BBC3005B0E1F /* Resources */,
 				AD86AA98D92FB1AAFC84CCC2 /* [CP] Copy Pods Resources */,
+				4847937020CE14BC007DA03C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4847936B20CE14BC007DA03C /* PBXTargetDependency */,
 			);
 			name = Mail;
 			productName = Mail;
@@ -129,8 +206,16 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = zbc;
 				TargetAttributes = {
+					4847935E20CE14BC007DA03C = {
+						CreatedOnToolsVersion = 9.3;
+					};
 					48EB407E20C8BBC3005B0E1F = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -148,11 +233,20 @@
 			projectRoot = "";
 			targets = (
 				48EB407E20C8BBC3005B0E1F /* Mail */,
+				4847935E20CE14BC007DA03C /* myToday */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4847935D20CE14BC007DA03C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4847936820CE14BC007DA03C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		48EB407D20C8BBC3005B0E1F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -206,6 +300,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4847935B20CE14BC007DA03C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4847936520CE14BC007DA03C /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		48EB407B20C8BBC3005B0E1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,7 +320,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4847936B20CE14BC007DA03C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4847935E20CE14BC007DA03C /* myToday */;
+			targetProxy = 4847936A20CE14BC007DA03C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		4847936620CE14BC007DA03C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4847936720CE14BC007DA03C /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		48EB408820C8BBC3005B0E1F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -238,6 +356,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4847936D20CE14BC007DA03C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3482413C0301CD5AFC897E80 /* Pods-Mail.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8JXFC44EES;
+				INFOPLIST_FILE = myToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zack.Mail.myToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4847936E20CE14BC007DA03C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AB44133EF852E5E93843021 /* Pods-Mail.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8JXFC44EES;
+				INFOPLIST_FILE = myToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zack.Mail.myToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		48EB409320C8BBC5005B0E1F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -353,6 +509,7 @@
 			baseConfigurationReference = 3482413C0301CD5AFC897E80 /* Pods-Mail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mail/Mail.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JXFC44EES;
 				INFOPLIST_FILE = Mail/Info.plist;
@@ -371,6 +528,7 @@
 			baseConfigurationReference = 8AB44133EF852E5E93843021 /* Pods-Mail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mail/Mail.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JXFC44EES;
 				INFOPLIST_FILE = Mail/Info.plist;
@@ -387,6 +545,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4847936F20CE14BC007DA03C /* Build configuration list for PBXNativeTarget "myToday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4847936D20CE14BC007DA03C /* Debug */,
+				4847936E20CE14BC007DA03C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		48EB407A20C8BBC3005B0E1F /* Build configuration list for PBXProject "Mail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
